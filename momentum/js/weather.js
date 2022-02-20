@@ -12,11 +12,11 @@ function onGeoOk(position) {
     //fetch로 url를 받아오고 then으로 응답을 받아옴
     fetch(url).then(response => response.json()).then(data => {
 
-        const weater = document.querySelector("#weather span:first-child");
-        const city = document.querySelector("#weather span:last-child");
-
-        weater.innerText = `${data.weather[0].main} / ${data.main.temp}`;
+        const city = document.querySelector("#weather span:first-child");
+        const weater = document.querySelector("#weather span:last-child");
+        
         city.innerText = data.name;
+        weater.innerText = `|| ${data.main.temp}℃ ${data.weather[0].main}`;
     });
 }
 
